@@ -78,7 +78,8 @@
             left: 16%; 
             transform: translateY(-50%);
         }
-        .imgbox {
+
+        .imgboxIn {
     width: 5vw;
     height: 5vw;
 
@@ -88,7 +89,21 @@
     margin-left:69%;
     margin-bottom: 3.3vw;
 }
-.imgbox img {
+.imgboxIn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+
+}
+.imgboxOut {
+    width: 5vw;
+    height: 5vw;
+    border:0px solid black;
+    display: block;
+    margin-left:18%;
+    margin-bottom: 3.3vw;
+}
+.imgboxOut img {
     width: 100%;
     height: 100%;
     object-fit: cover; 
@@ -99,15 +114,23 @@
 <body><br><br>
     <div class="container"  style="width: 95%; border:px solid red; margin: 0 auto;">
         <div class="NVR">
-            <div class="imgbox"><img src="x.svg" alt="Image A"></div>
-            <div class="imgbox"><img src="x.svg" alt="Image B"></div>
-            <div class="imgbox"><img src="x.svg" alt="Image C"></div>
-            <div class="imgbox"><img src="x.svg" alt="Image D"></div>
-            <div class="imgbox"><img src="x.svg" alt="Image E"></div>
-            <div class="imgbox"><img src="x.svg" alt="Image F"></div>
+            <div class="imgboxIn"><img src="x.svg" alt="Image A"></div>
+            <div class="imgboxIn"><img src="x.svg" alt="Image B"></div>
+            <div class="imgboxIn"><img src="x.svg" alt="Image C"></div>
+            <div class="imgboxIn"><img src="x.svg" alt="Image D"></div>
+            <div class="imgboxIn"><img src="x.svg" alt="Image E"></div>
+            <div class="imgboxIn"><img src="x.svg" alt="Image F"></div>
         </div>
         
-    <div class="APP"></div>
+    <div class="APP">
+<div style="margin-top:56.5vw; position: absolute;">
+        <div class="imgboxOut"><img src="x.svg" alt="Image A"></div>
+        <div class="imgboxOut"><img src="x.svg" alt="Image B"></div>
+        <div class="imgboxOut"><img src="x.svg" alt="Image C"></div>
+        <div class="imgboxOut"><img src="x.svg" alt="Image D"></div>
+        <div class="imgboxOut"><img src="x.svg" alt="Image E"></div>
+        <div class="imgboxOut"><img src="x.svg" alt="Image F"></div></div>
+    </div>
     <div class="arrow">
         <div class="arrow-container">
             <div class="arrowIn"></div>
