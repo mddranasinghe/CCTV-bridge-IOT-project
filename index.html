@@ -47,73 +47,34 @@
   #In{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;display: none; width: 90vw; margin-right: auto; margin-left: auto;}
   #InOut{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;width: 90vw; margin-right: auto; margin-left: auto;}
   #Out{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top: 15vw;position: relative; display:none;width: 90vw; margin-right: auto; margin-left: auto;}
-  .arrow{ 
-            margin: 0 auto;
-            width: 40%;
-            border: 1px solid red;
-            height: 6vw;
-            position: relative;
-            margin-top:2.2vw;
-        }
-        .arrow-container {
-            position: absolute;
-            top: 50%;
-            left: 36%; 
-            transform: translate(-50%, -50%);
-            width: 100%;
-            margin-top: 2.2vw;
+
+        .ui{ width:90vw;
+        border: 1px solid;
+        margin: 0 auto;}
+        .ui #home{  
           
-        }
-
-        .arrowIn {
-            width: 100%;
-            height: 100%;
-            border-top: 2vw solid transparent; 
-            border-bottom:2vw solid transparent;
-            border-left: 3vw solid black; 
-            position: absolute;
-            top: 0%;
-            left:100%;
-            transform: translateY(-50%) scale(-1,1); 
-        }
-        .arrowOut {
-            width: 100%;
-            height: 100%;
-            border-top: 2vw solid transparent; 
-            border-bottom:2vw solid transparent;
-            border-left: 3vw solid black; 
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) scale(1,1); 
-        }
-
-        .lineIn {
-            width:34vw; 
-            height: 0vw; 
-            border: .5vw solid black;
-            position: absolute;
-            top: 10%;
-            left: 20%; 
-            transform: translateY(-50%);
-        }
-        .lineOut {
-            width:25vw; 
-            height: 0vw; 
-            border: .5vw solid black;
-            position: absolute;
-            top: 10%;
-            left: 16%; 
-            transform: translateY(-50%);
-        }
+          }
+          td{border: 0px solid;
+          width:28%}
 </style>
 </head>
 <body>
     <div class="container">
-<div class="ui">
-    <img src="download.jpeg">
-    <img src="a.jpg" style="width: 20vw;">
 
-</div>
+<table style="border: 1px solid; margin: 0 auto;">
+<tr>
+    <td >    <img id="nvr"src="download.jpeg"></td>
+    <td>
+       <div id="l1"style="border: 4px solid; "></div>
+       <div id="l2" style="border: 4px solid; margin-top:3vw;display: none;"></div>
+       <div id="l3" style="border: 4px solid; margin-top:3vw"></div>
+    </td>
+    <td>   
+        <img id="home" src="a.jpg" style="width: 20vw;"></td>
+</tr>
+
+</table>
+
     <div  class='button-box'>
         <div id='btn'></div>
         <button type='button' onclick="in1()"class='toggle-btn'> IN</button>
@@ -155,12 +116,19 @@
  var outch=document.getElementById('Out');
  var inout=document.getElementById('InOut');
  var btn=document.getElementById('btn');
+ var l1=document.getElementById('l1');
+ var l2=document.getElementById('l2');
+ var l3=document.getElementById('l3');
  function in1()
  {
    btn.style.left='0%';
    inch.style.display='block';
    inout.style.display="none";
    outch.style.display='none';
+   
+   l1.style.display='none';
+   l2.style.display="block";
+   l3.style.display='none';
 
  }
  function Inout()
@@ -169,6 +137,11 @@
    inch.style.display='none';
    inout.style.display="block";
    outch.style.display='none';
+
+   l1.style.display='block';
+   l2.style.display="none";
+   l3.style.display='block';
+
  }
  function out()
  {
@@ -176,6 +149,10 @@
      inch.style.display='none';
    inout.style.display="none";
    outch.style.display='block';
+
+   l1.style.display='none';
+   l2.style.display="block";
+   l3.style.display='none';
  }
 
 </script>
