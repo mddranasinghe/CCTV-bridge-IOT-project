@@ -2,26 +2,22 @@
 <html>
 <head>
 <style> 
+.container{width: 100%;margin: 0 auto;}
 
   .button-box{
 
-    top:10vw;
+      top:10vw;
       height: 9vw;
       margin: 0 auto;
       position: relative;
       border: 0px solid;
-      width: 90%;
- 
+      width: 90vw;
       box-shadow: 0.5px 0.5px 3px 0.5px gray;
       border-radius: 5vw;
-background-color: #9B9B9B;
-
-
+      background-color: #9B9B9B;
 
   }
   .toggle-btn {
-
-    
     cursor: pointer;
     background: transparent;
     border:0px solid;
@@ -34,10 +30,8 @@ background-color: #9B9B9B;
     font-size:4vw ;
     color:white;
     direction: none;
-  
-  
-
   }
+
   #btn
   {
       left:33%;
@@ -45,39 +39,143 @@ background-color: #9B9B9B;
       width: 33.3%;
       height:100%;
       background:  #68B581;
-      border-radius: 50px;
+      border-radius: 5vw;
       transition: .5s;
       box-shadow: 1px 1px 6px 1px gray;
-
   }
 
+  #In{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;display: none; width: 90vw; margin-right: auto; margin-left: auto;}
+  #InOut{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;width: 90vw; margin-right: auto; margin-left: auto;}
+  #Out{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top: 15vw;position: relative; display:none;width: 90vw; margin-right: auto; margin-left: auto;}
+  .arrow{ 
+            margin: 0 auto;
+            width: 40%;
+            border: 1px solid red;
+            height: 6vw;
+            position: relative;
+            margin-top:2.2vw;
+        }
+        .arrow-container {
+            position: absolute;
+            top: 50%;
+            left: 36%; 
+            transform: translate(-50%, -50%);
+            width: 100%;
+            margin-top: 2.2vw;
+          
+        }
+
+        .arrowIn {
+            width: 100%;
+            height: 100%;
+            border-top: 2vw solid transparent; 
+            border-bottom:2vw solid transparent;
+            border-left: 3vw solid black; 
+            position: absolute;
+            top: 0%;
+            left:100%;
+            transform: translateY(-50%) scale(-1,1); 
+        }
+        .arrowOut {
+            width: 100%;
+            height: 100%;
+            border-top: 2vw solid transparent; 
+            border-bottom:2vw solid transparent;
+            border-left: 3vw solid black; 
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) scale(1,1); 
+        }
+
+        .lineIn {
+            width:34vw; 
+            height: 0vw; 
+            border: .5vw solid black;
+            position: absolute;
+            top: 10%;
+            left: 20%; 
+            transform: translateY(-50%);
+        }
+        .lineOut {
+            width:25vw; 
+            height: 0vw; 
+            border: .5vw solid black;
+            position: absolute;
+            top: 10%;
+            left: 16%; 
+            transform: translateY(-50%);
+        }
 </style>
 </head>
 <body>
+    <div class="container">
+<div class="ui">
+    <img src="download.jpeg">
+    <img src="a.jpg" style="width: 20vw;">
 
+</div>
     <div  class='button-box'>
         <div id='btn'></div>
         <button type='button' onclick="in1()"class='toggle-btn'> IN</button>
-        <button type='button' onclick="out()"class='toggle-btn'>IN-OUT</button>
-        <button type='button' onclick="out2()"class='toggle-btn'>OUT</button>
+        <button type='button' onclick="Inout()"class='toggle-btn'>IN-OUT</button>
+        <button type='button' onclick="out()"class='toggle-btn'>OUT</button>
     </div>
 
+<div id="In">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1"> channel 01</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> chennel 02</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="vehicle3"> chennel 03</label><br><br>
+ </div>
 
+<div id="InOut">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1"> disarm in</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> Disarm out</label><br>
+  
+   
+</div>
+
+<div id="Out">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1"> channel 01</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> chennel 02</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="vehicle3"> chennel 03</label><br><br>
+</div>
+
+</div>
 <script>
 
- var z=document.getElementById('btn');
+ var inch=document.getElementById('In');
+ var outch=document.getElementById('Out');
+ var inout=document.getElementById('InOut');
+ var btn=document.getElementById('btn');
  function in1()
  {
+   btn.style.left='0%';
+   inch.style.display='block';
+   inout.style.display="none";
+   outch.style.display='none';
 
-     z.style.left='0vw';
+ }
+ function Inout()
+ {
+   btn.style.left='33%';
+   inch.style.display='none';
+   inout.style.display="block";
+   outch.style.display='none';
  }
  function out()
  {
-   z.style.left='33%';
- }
- function out2()
- {
-     z.style.left='67%';
+     btn.style.left='67%';
+     inch.style.display='none';
+   inout.style.display="none";
+   outch.style.display='block';
  }
 
 </script>
