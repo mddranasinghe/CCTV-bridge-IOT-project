@@ -3,6 +3,58 @@
 <head>
 <style> 
 .container{width: 100%;margin: 0 auto;}
+.ui{ width:90vw;
+        border: 1px solid;
+        margin: 0 auto;}
+        table #home{  
+        
+          vertical-align: right;
+
+          }
+        .container td{border: 0px solid;
+          width:28%}
+          table p{font-size: 5.5vw;}
+          table img{width: 19vw; height: 19vw;}
+          .line{ border: 4px solid; width: 35vw;  margin-left:auto;margin-right:auto ;}
+        #arrowIn 
+        {   border-top: 2vw solid transparent; 
+            border-bottom:2vw solid transparent;
+            border-left: 3vw solid black;
+            transform: translateY(-50%) scale(-1,1); 
+            margin-right: 35vw;
+            margin-top:-.4%;
+            position: absolute;
+          }
+        #arrowout{ border-top: 2vw solid transparent; 
+            border-bottom:2vw solid transparent;
+            border-left: 3vw solid black;
+            transform: translateY(-50%) scale(1,1); 
+            margin-left: 37vw;
+            margin-top:-.4%;
+            position: absolute;}
+
+            #arrowIn2{
+              border-top: 2vw solid transparent; 
+            border-bottom:2vw solid transparent;
+            border-left: 3vw solid black;
+            transform: translateY(-50%) scale(-1,1); 
+            margin-right: 35vw;
+            margin-top:-.4%;
+            position: absolute;
+            display: none;
+
+            }
+            #arrowout2{
+              border-top: 2vw solid transparent; 
+            border-bottom:2vw solid transparent;
+            border-left: 3vw solid black;
+            transform: translateY(-50%) scale(1,1); 
+            margin-left: 37vw;
+            margin-top:-.4%;
+            position: absolute;
+            display:none;
+            }
+
 
   .button-box{
 
@@ -50,16 +102,7 @@
   #InOut{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;width: 90vw; margin-right: auto; margin-left: auto;}
   #Out{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top: 15vw;position: relative; display:none;width: 90vw; margin-right: auto; margin-left: auto; }
 
-        .ui{ width:90vw;
-        border: 1px solid;
-        margin: 0 auto;}
-        .ui #home{  
-          
-          }
-        .container td{border: 0px solid;
-          width:28%}
-          table p{font-size: 5.5vw;}
-
+       
 
 .check {
   display: block;
@@ -76,7 +119,6 @@
 
 }
 
-/* Hide the browser's default checkbox */
 .check input {
   position: absolute;
   opacity: 0;
@@ -86,7 +128,7 @@
 
 }
 
-/* Create a custom checkbox */
+
 .checkmark {
   position: absolute;
   height: 5vw;
@@ -99,19 +141,19 @@
   
 
 }
-/* Create the checkmark/indicator (hidden when not checked) */
+
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
+
 .check input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
+
 .check .checkmark:after {
   width: 1.2vw;
   height: 2.4vw;
@@ -184,16 +226,16 @@
       
         
 
-<table style="border: 0px solid; margin: 0 auto;">
+<table style="border: 0px solid; margin: 0 auto; width: 80%; ">
 <tr>
-    <td >    <img id="nvr"src="download.jpeg"></td>
-    <td>
-       <div id="l1"style="border: 4px solid; "></div>
-       <div id="l2" style="border: 4px solid; margin-top:3vw;display: none;"></div>
-       <div id="l3" style="border: 4px solid; margin-top:3vw"></div>
+    <td  style="width: 10%;"><img id="nvr"src="cam.png" ></td>
+    <td style="width: 60%;">
+       <div class="line" id="l1"></div><div id="arrowIn"></div>
+       <div class="line" id="l2" style=" margin-top:3vw;display: none;"></div></div><div id="arrowIn2" ></div><div id="arrowout2"></div>
+       <div  class="line" id="l3" style=" margin-top:3vw"></div></div><div id="arrowout"></div>
     </td>
-    <td>   
-        <img id="home" src="a.jpg" style="width: 20vw;"></td>
+    <td style="width: 10%;">   
+        <img id="home" src="a.jpg" ></td>
 </tr>
 
 </table>
@@ -279,6 +321,11 @@
  var l1=document.getElementById('l1');
  var l2=document.getElementById('l2');
  var l3=document.getElementById('l3');
+ var arrowIn=document.getElementById('arrowIn');
+ var arrowout=document.getElementById('arrowout');
+ var arrowIn2=document.getElementById('arrowIn2');
+ var arrowout2=document.getElementById('arrowout2');
+
  function in1()
  {
    btn.style.left='0%';
@@ -289,6 +336,10 @@
    l1.style.display='none';
    l2.style.display="block";
    l3.style.display='none';
+   arrowIn.style.display='none';
+   arrowout.style.display='none';
+   arrowIn2.style.display='block';
+   arrowout2.style.display='none';
 
  }
  function Inout()
@@ -301,6 +352,11 @@
    l1.style.display='block';
    l2.style.display="none";
    l3.style.display='block';
+   arrowIn.style.display='block';
+   arrowout.style.display='block';
+   arrowIn2.style.display='none';
+   arrowout2.style.display='none';
+
 
  }
  function out()
@@ -313,6 +369,10 @@
    l1.style.display='none';
    l2.style.display="block";
    l3.style.display='none';
+   arrowIn.style.display='none';
+   arrowout.style.display='none';
+   arrowIn2.style.display='none';
+   arrowout2.style.display='block';
  }
 
 
