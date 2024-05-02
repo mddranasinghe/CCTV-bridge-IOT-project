@@ -435,10 +435,9 @@ document.getElementById('Dis_all').addEventListener('change', function() {
 });
 
 document.getElementById('Dis_out').addEventListener('change', function() {
-    var checkbox = document.getElementById('Dis_out');
-    if (checkbox.checked) {
-     
-
+  var checkboxIn= document.getElementById('Dis_in');
+    var checkboxOut= document.getElementById('Dis_out');
+    if (checkboxOut.checked && !checkboxIn.checked ) {
    l1.style.display='none';
    l2.style.display="block";
    l3.style.display='none';
@@ -447,10 +446,22 @@ document.getElementById('Dis_out').addEventListener('change', function() {
    arrowIn2.style.display='block';
    arrowout2.style.display='none';
     }
+    else if(checkboxOut.checked && checkboxIn.checked){
+
+  l1.style.display='block';
+  l2.style.display="none";
+   l3.style.display='block';
+   arrowIn.style.display='block';
+   arrowout.style.display='block';
+   arrowIn2.style.display='none';
+   arrowout2.style.display='none';
+   document.getElementById('Dis_all').checked = true;
+    }
 });
 document.getElementById('Dis_in').addEventListener('change', function() {
-    var checkbox = document.getElementById('Dis_in');
-    if (checkbox.checked) {
+    var checkboxIn= document.getElementById('Dis_in');
+    var checkboxOut= document.getElementById('Dis_out');
+    if (checkboxIn.checked && !checkboxOut.checked ) {
       l1.style.display='none';
    l2.style.display="block";
    l3.style.display='none';
@@ -459,7 +470,23 @@ document.getElementById('Dis_in').addEventListener('change', function() {
    arrowIn2.style.display='none';
    arrowout2.style.display='block';
     }
+
+    else if(checkboxOut.checked && checkboxIn.checked){
+
+l1.style.display='block';
+l2.style.display="none";
+ l3.style.display='block';
+ arrowIn.style.display='block';
+ arrowout.style.display='block';
+ arrowIn2.style.display='none';
+ arrowout2.style.display='none';
+ document.getElementById('Dis_all').checked = true;
+  }
 });
+
+
+
+
 
 </script>
 
