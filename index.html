@@ -99,7 +99,7 @@
   }
 
   #In{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;display: none; width: 90vw; margin-right: auto; margin-left: auto;}
-  #InOut{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;width: 90vw; margin-right: auto; margin-left: auto;}
+  #InOut{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;width:90% ; margin-right: auto; margin-left: auto;}
   #Out{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top: 15vw;position: relative; display:none;width: 90vw; margin-right: auto; margin-left: auto; }
 
        
@@ -166,8 +166,64 @@
   left:1.8vw;
 }
 
-    
-.popup {
+.toggle { position: relative; box-sizing: border-box;}
+.toggle input[type="checkbox"] {
+  position: absolute;
+  left: 2px;
+  top: 0;
+ /* z-index: 10;*/
+  width: 85%;
+  height: 70%;
+  cursor: pointer;
+  opacity: 0;}
+
+.toggle label {
+  position: relative;
+  display: block;
+  align-items: center;
+  box-sizing: border-box;}
+
+.toggle label:before {
+  content: '';
+  width: 50px;
+  height: 22px;
+  background: #ccc;
+  position: relative;
+  display: inline-block;
+  border-radius: 46px;
+  box-sizing: border-box;
+  transition: 0.2s ease-in;
+}
+.toggle label:after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  left: 2px;
+  top: 2px;
+  z-index: 2;
+  background: #fff;
+  box-sizing: border-box;
+  transition: 0.2s ease-in;
+}
+.toggle input[type="checkbox"]:checked + label:before { background: #4BD865;}
+.toggle input[type="checkbox"]:checked + label:after {left: 30px;}
+
+
+
+.Ac,.Al { width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px;}
+.status_box {
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color:white;
+        display: flex; /* Use flexbox to align children */
+         align-items: center; }
+
+.topic {flex: 1;} 
+.option { margin-left: center;} /* Push to the right */
+
+.popup{
      width: 70%;
        display: none;
        position: fixed;
@@ -214,6 +270,8 @@
      z-index: 9998;
      cursor: pointer;
     }
+
+
 </style>
 </head>
 <body>
@@ -268,19 +326,18 @@
  </div>
 
 <div id="InOut">
+ 
+  <div style="width: 95%; margin: 0 auto;">
+ 
+    <div class="status_box">
+        <div class="topic"><p>Sirenes Action</p></div>
+        <div class="option">  <div class="toggle">
+        <input type="checkbox" id="S_Ac" onclick="acAll('S_Ac')" ><label for="S_Ac" ></label></div> 
+     </div>
+    </div>
 
-  <label class="check" >Disarm All In Channels  
-    <input type="checkbox" id="Dis_in" onclick="actionClose('Dis_in')">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Disarm All Out Channels
-    <input type="checkbox" id="Dis_out"onclick="actionClose('Dis_out')">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Disarm All Channels
-    <input type="checkbox" id="Dis_all" onclick="actionClose('Dis_all')">
-    <span class="checkmark"></span>
-  </label>
+
+</div>
 </div>
 
 <div id="Out">
