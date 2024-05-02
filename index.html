@@ -269,8 +269,8 @@
 
 <div id="InOut">
 
-  <label class="check" >Disarm All In Channels 
-    <input type="checkbox" checked="checked" id="Dis_in" onclick="actionClose('Dis_in')">
+  <label class="check" >Disarm All In Channels  
+    <input type="checkbox" id="Dis_in" onclick="actionClose('Dis_in')">
     <span class="checkmark"></span>
   </label>
   <label class="check">Disarm All Out Channels
@@ -285,7 +285,7 @@
 
 <div id="Out">
   <label class="check">Channel 01
-    <input type="checkbox" checked="checked">
+    <input type="checkbox">
     <span class="checkmark"></span>
   </label>
   <label class="check">Channel 02
@@ -380,7 +380,7 @@
  var payload;
   function actionClose(id1){
     var checkbox = document.getElementById(id1)
-    if (!checkbox.checked) {
+    if (checkbox.checked) {
         document.getElementById('popup').style.display = 'block';
         document.getElementById("overlay").style.display = "block";   
     }
@@ -395,9 +395,9 @@ document.getElementById('yesButton').addEventListener('click', function() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById("overlay").style.display = "none";
     if (id1Value == 'Dis_all') {
-        document.getElementById(id1Value).checked = false;
-        document.getElementById('Dis_in').checked = false;
-        document.getElementById('Dis_out').checked = false;
+        document.getElementById(id1Value).checked = true;
+        document.getElementById('Dis_in').checked = true;
+        document.getElementById('Dis_out').checked = true;
         payload="0";
     }
     console.log(payload);
@@ -408,11 +408,59 @@ document.getElementById('noButton').addEventListener('click', function() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById("overlay").style.display = "none";
     if (id1Value) {
-        document.getElementById(id1Value).checked = true;
+        document.getElementById(id1Value).checked = false;
         payload="1";
     }
+   
+    
     console.log(payload);
 });
+
+
+document.getElementById('Dis_all').addEventListener('change', function() {
+    var checkbox = document.getElementById('Dis_all');
+    if (!checkbox.checked) {
+        document.getElementById('Dis_in').checked = false;
+        document.getElementById('Dis_out').checked = false;
+        document.getElementById('Dis_all').checked = false;
+
+        l1.style.display='block';
+   l2.style.display="none";
+   l3.style.display='block';
+   arrowIn.style.display='block';
+   arrowout.style.display='block';
+   arrowIn2.style.display='none';
+   arrowout2.style.display='none';
+    }
+});
+
+document.getElementById('Dis_out').addEventListener('change', function() {
+    var checkbox = document.getElementById('Dis_out');
+    if (checkbox.checked) {
+     
+
+   l1.style.display='none';
+   l2.style.display="block";
+   l3.style.display='none';
+   arrowIn.style.display='none';
+   arrowout.style.display='none';
+   arrowIn2.style.display='block';
+   arrowout2.style.display='none';
+    }
+});
+document.getElementById('Dis_in').addEventListener('change', function() {
+    var checkbox = document.getElementById('Dis_in');
+    if (checkbox.checked) {
+      l1.style.display='none';
+   l2.style.display="block";
+   l3.style.display='none';
+   arrowIn.style.display='none';
+   arrowout.style.display='none';
+   arrowIn2.style.display='none';
+   arrowout2.style.display='block';
+    }
+});
+
 </script>
 
 </body>
