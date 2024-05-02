@@ -127,7 +127,7 @@
     
 .popup {
      width: 70%;
-       display: none;
+       display: block;
        position: fixed;
        top: 50%;
        left: 50%;
@@ -135,7 +135,7 @@
        background-color: #ffffff;
        border: 1px solid #ccc;
        border-radius:20px;
-    
+       font-size: 5vw;
        z-index: 9999;
     }
     
@@ -146,15 +146,18 @@
     
     #yesButton, #noButton {
     width: 49%;  
-    height: 47px;
     border-left: solid;
     border-color: gray;
     border-width: 0.5px;
     float: right;
-    color:blue;
+    font-size: 4vw;
+    color: blue;
+   
+
+   
      }
     #yesButton{border-left: none; color:red}
-    .pop_button p{ text-align:center; margin-bottom: 10px;}
+    .pop_button p{ text-align:center; }
     
     #overlay {
      position: fixed;
@@ -333,6 +336,8 @@ document.getElementById('yesButton').addEventListener('click', function() {
     document.getElementById("overlay").style.display = "none";
     if (id1Value == 'Dis_all') {
         document.getElementById(id1Value).checked = false;
+        document.getElementById('Dis_in').checked = false;
+        document.getElementById('Dis_out').checked = false;
         payload="0";
     }
     console.log(payload);
