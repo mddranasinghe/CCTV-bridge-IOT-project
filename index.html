@@ -234,6 +234,26 @@ input[type="checkbox"]:checked::after {
      cursor: pointer;
     }
 
+
+
+    .popup2 {
+    width: 80%;
+  display: none; 
+  position: fixed;
+  top: 90%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  border-radius: 10px 10px;
+  background-color:#7D63BE;
+ 
+  z-index: 9999; 
+  color: white;
+  font-size: 100%;
+ 
+}
+
+
+.popup-content2 {text-align: center;margin-bottom:0%; }
 </style>
 </head>
 <body>
@@ -359,6 +379,13 @@ input[type="checkbox"]:checked::after {
 </div>
 <div id="overlay"></div>
 
+
+<div id="popup2" class="popup2" >
+  <div class="popup-content2" >
+    <p >Auto Mode Enable !</p>
+
+  </div>
+</div>
 <script>
 
  var inch=document.getElementById('In');
@@ -703,6 +730,12 @@ function arm_all(){
         l1.style.borderColor='#018FFB';
         arrowout.style.borderLeftColor="#FEB018";
         l3.style.borderColor='#FEB018';
+
+        for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_in'+i).disabled = false;
+          document.getElementById('arm_out'+i).disabled = false;
+        }
   
     }
 }
