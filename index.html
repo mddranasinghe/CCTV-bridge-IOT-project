@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 <style> 
 .container{width: 100%;margin: 0 auto;}
-.ui{ width:90vw;
+.ui{
         border: 1px solid;
         margin: 0 auto;}
         table #home{  
@@ -14,46 +17,36 @@
         .container td{border: 0px solid;
           width:28%}
           table p{font-size: 5.5vw;}
-          table img{width: 19vw; height: 19vw;}
-          .line{ border: 4px solid; width: 35vw;  margin-left:auto;margin-right:auto ;}
-        #arrowIn 
+          table img{width: 15vw; height: 15vw;}
+
+
+      .line_out{ border: .5vw solid #FEB018; width:95%;  margin-left:auto;margin-right:auto ;}
+      .line_in{ border: .5vw solid #018FFB; width:95%;  margin-left:auto;margin-right:auto ;}
+
+       
+       
+       
+       
+          #arrowIn 
         {   border-top: 2vw solid transparent; 
             border-bottom:2vw solid transparent;
-            border-left: 3vw solid black;
+            border-left: 3vw solid #018FFB;
             transform: translateY(-50%) scale(-1,1); 
-            margin-right: 35vw;
+         
+           margin-left:auto;
             margin-top:-.4%;
             position: absolute;
+       
           }
         #arrowout{ border-top: 2vw solid transparent; 
             border-bottom:2vw solid transparent;
-            border-left: 3vw solid black;
+            border-left: 3vw solid #FEB018;
             transform: translateY(-50%) scale(1,1); 
-            margin-left: 37vw;
-            margin-top:-.4%;
-            position: absolute;}
+       margin-left: 95%;
+            margin-top:-.6%;
+            position: relative;
+         }
 
-            #arrowIn2{
-              border-top: 2vw solid transparent; 
-            border-bottom:2vw solid transparent;
-            border-left: 3vw solid black;
-            transform: translateY(-50%) scale(-1,1); 
-            margin-right: 35vw;
-            margin-top:-.4%;
-            position: absolute;
-            display: none;
-
-            }
-            #arrowout2{
-              border-top: 2vw solid transparent; 
-            border-bottom:2vw solid transparent;
-            border-left: 3vw solid black;
-            transform: translateY(-50%) scale(1,1); 
-            margin-left: 37vw;
-            margin-top:-.4%;
-            position: absolute;
-            display:none;
-            }
 
 
   .button-box{
@@ -63,7 +56,7 @@
       margin: 0 auto;
       position: relative;
       border: 0px solid;
-      width: 90vw;
+      width: 90%;
       box-shadow: 0.5px 0.5px 3px 0.5px gray;
       border-radius: 5vw;
       background-color:    #9B9B9B ;
@@ -77,7 +70,7 @@
     border:0px solid;
     outline: none;
     position: relative;
-    width: 33%;
+    width: 32%;
     height:100%;
     margin: 0 auto;
     border-radius: 5vw;
@@ -98,82 +91,47 @@
       box-shadow: 1px 1px 6px 1px gray;
   }
 
-  #In{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;display: none; width: 90vw; margin-right: auto; margin-left: auto;}
-  #InOut{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;width:90% ; margin-right: auto; margin-left: auto;}
-  #Out{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top: 15vw;position: relative; display:none;width: 90vw; margin-right: auto; margin-left: auto; }
+  #In{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;display: none; width: 95%; margin-right: auto; margin-left: auto;}
+  #InOut{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top:15vw;position: relative;width:95% ; margin-right: auto; margin-left: auto;}
+  #Out{width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px; margin-top: 15vw;position: relative; display:none;width: 95%; margin-right: auto; margin-left: auto; }
 
-       
+      
 
-.check {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  font-size: 6vw;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  top:1vw;
-  left: 1.2vw;
-  padding-bottom:3vw;
-
-}
-
-.check input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+ /* Style for checkboxes */
+ input[type="checkbox"] {
+    width: 30px;
+    height: 30px; 
+    border: 3px solid green; 
+    background-color: white; 
+    appearance: none;
+    position: relative; 
+	border-radius:5px;
 
 }
 
 
-.checkmark {
-  position: absolute;
-  height: 5vw;
-  width: 5vw;
-  background-color: #eee;
-  border:.5vw solid green;
-  border-radius:5px;
-  left:90%;
-  top:.8vw
-  
+input[type="checkbox"]:checked::after {
+    content: ''; 
+    position: absolute; 
+    left: 8px; 
+    top: 4.5px; 
+    width: 6px;
+    height: 12px; 
+    border: 3px solid green;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
 
 }
 
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
 
 
-.check input:checked ~ .checkmark:after {
-  display: block;
-}
-
-
-.check .checkmark:after {
-  width: 1.2vw;
-  height: 2.4vw;
-  border: solid green;
-  border-width: 0 .5vw 0.5vw 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  top:.8vw;
-  left:1.8vw;
-}
 
 .toggle { position: relative; box-sizing: border-box;}
 .toggle input[type="checkbox"] {
   position: absolute;
-  left: 2px;
+  left: px;
   top: 0;
  /* z-index: 10;*/
-  width: 85%;
-  height: 70%;
   cursor: pointer;
   opacity: 0;}
 
@@ -212,13 +170,15 @@
 
 
 
-.Ac,.Al { width:100%;box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 3px 3px;}
 .status_box {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
         background-color:white;
         display: flex; /* Use flexbox to align children */
-         align-items: center; }
+         align-items: center;
+         border: 0px solid;
+     
+      }
 
 .topic {flex: 1;} 
 .option { margin-left: center;} /* Push to the right */
@@ -271,7 +231,6 @@
      cursor: pointer;
     }
 
-
 </style>
 </head>
 <body>
@@ -284,13 +243,12 @@
       
         
 
-<table style="border: 0px solid; margin: 0 auto; width: 80%; ">
+<table style="border: 0px solid; margin: 0 auto; width: 90%; ">
 <tr>
     <td  style="width: 10%;"><img id="nvr"src="cam.png" ></td>
     <td style="width: 60%;">
-       <div class="line" id="l1"></div><div id="arrowIn"></div>
-       <div class="line" id="l2" style=" margin-top:3vw;display: none;"></div></div><div id="arrowIn2" ></div><div id="arrowout2"></div>
-       <div  class="line" id="l3" style=" margin-top:3vw"></div></div><div id="arrowout"></div>
+       <div class="line_in" id="l1"></div><div id="arrowIn"></div>
+       <div  class="line_out" id="l3" style=" margin-top:3vw"></div><div id="arrowout"></div>
     </td>
     <td style="width: 10%;">   
         <img id="home" src="a.jpg" ></td>
@@ -306,57 +264,71 @@
     </div>
 
 <div id="In">
+<div  style="width: 90%; margin: 0 auto;">
+  <div class="status_box" >
+    <div class="topic"><p>Feed 01</p></div>
+    <input type="checkbox" id="arm_in1"><label for="arm_in1" ></label>
+</div>
+<div class="status_box" >
+  <div class="topic" ><p>Feed 02</p></div>
+  <input type="checkbox" id="arm_in2"><label for="arm_in2" ></label>
+</div>
+<div class="status_box" >
+  <div class="topic" ><p>Feed 03</p></div>
+  <input type="checkbox" id="arm_in3"><label for="arm_in3" ></label>
+</div>
+<div class="status_box" >
+  <div class="topic" ><p>Feed 04</p></div>
+  <input type="checkbox" id="arm_in4"><label for="arm_in4" ></label>
+</div>
+</div>
 
-  <label class="check">Channel 01
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Channel 02
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Channel 03
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Channel 04
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
- </div>
 
+</div>
 <div id="InOut">
  
-  <div style="width: 95%; margin: 0 auto;">
+  <div style="width: 90%; margin: 0 auto; ">
  
     <div class="status_box">
-        <div class="topic"><p>Sirenes Action</p></div>
-        <div class="option">  <div class="toggle">
-        <input type="checkbox" id="S_Ac" onclick="acAll('S_Ac')" ><label for="S_Ac" ></label></div> 
-     </div>
+      <div class="topic"><p>Arm In Feed</p></div>
+      <div class="option">  <div class="toggle">
+      <input type="checkbox" checked id="arm_in" onclick="actionClose('arm_in')" ><label for="arm_in" ></label></div> 
+   </div>
     </div>
-
+    <div class="status_box">
+      <div class="topic"><p>Arm Out Feed</p></div>
+      <div class="option">  <div class="toggle">
+      <input type="checkbox" checked id="arm_out" onclick="actionClose('arm_out')" ><label for="arm_out" ></label></div> 
+   </div>
+  </div>
+  <div class="status_box">
+    <div class="topic"><p>Arm All Feed</p></div>
+    <div class="option">  <div class="toggle">
+    <input type="checkbox" checked id="arm_all" onclick="actionClose('arm_all')" ><label for="arm_all" ></label></div> 
+ </div>
+</div>
 
 </div>
 </div>
 
 <div id="Out">
-  <label class="check">Channel 01
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Channel 02
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Channel 03
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  <label class="check">Channel 04
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
+  <div  style="width: 90%; margin: 0 auto;">
+  <div class="status_box" >
+    <div class="topic" ><p>Feed 01</p></div>
+    <input type="checkbox" id="arm_out1"><label for="arm_out1" ></label>
+</div>
+<div class="status_box" >
+  <div class="topic" ><p>Feed 02</p></div>
+  <input type="checkbox" id="arm_out2"><label for="arm_out2" ></label>
+</div>
+<div class="status_box" >
+  <div class="topic" ><p>Feed 03</p></div>
+  <input type="checkbox" id="arm_out2"><label for="arm_out2" ></label>
+</div>
+<div class="status_box" >
+  <div class="topic" ><p>Feed 04</p></div>
+  <input type="checkbox" id="arm_out2"><label for="arm_out2" ></label>
+</div>
 </div>
 </div>
 
@@ -375,14 +347,16 @@
  var outch=document.getElementById('Out');
  var inout=document.getElementById('InOut');
  var btn=document.getElementById('btn');
+
  var l1=document.getElementById('l1');
- var l2=document.getElementById('l2');
  var l3=document.getElementById('l3');
+
  var arrowIn=document.getElementById('arrowIn');
  var arrowout=document.getElementById('arrowout');
- var arrowIn2=document.getElementById('arrowIn2');
- var arrowout2=document.getElementById('arrowout2');
 
+ var checkboxIn= document.getElementById('arm_in');
+ var checkboxOut= document.getElementById('arm_out');
+ var checkboxAll= document.getElementById('arm_all')
  function in1()
  {
    btn.style.left='0%';
@@ -390,13 +364,11 @@
    inout.style.display="none";
    outch.style.display='none';
    
-   l1.style.display='none';
-   l2.style.display="block";
+   l1.style.display='block';
    l3.style.display='none';
-   arrowIn.style.display='none';
+   arrowIn.style.display='block';
    arrowout.style.display='none';
-   arrowIn2.style.display='block';
-   arrowout2.style.display='none';
+
 
  }
  function Inout()
@@ -407,13 +379,9 @@
    outch.style.display='none';
 
    l1.style.display='block';
-   l2.style.display="none";
    l3.style.display='block';
    arrowIn.style.display='block';
    arrowout.style.display='block';
-   arrowIn2.style.display='none';
-   arrowout2.style.display='none';
-
 
  }
  function out()
@@ -424,12 +392,10 @@
    outch.style.display='block';
 
    l1.style.display='none';
-   l2.style.display="block";
-   l3.style.display='none';
+   l3.style.display='block';
    arrowIn.style.display='none';
-   arrowout.style.display='none';
-   arrowIn2.style.display='none';
-   arrowout2.style.display='block';
+   arrowout.style.display='block';
+
  }
 
 
@@ -437,108 +403,157 @@
  var payload;
   function actionClose(id1){
     var checkbox = document.getElementById(id1)
-    if (checkbox.checked) {
+    if (!checkbox.checked) {
         document.getElementById('popup').style.display = 'block';
         document.getElementById("overlay").style.display = "block";   
     }
     else{
+      
+
       payload="1";
     }
     id1Value=id1;
-    console.log(payload);
+
   }
 document.getElementById('yesButton').addEventListener('click', function() {
  
     document.getElementById('popup').style.display = 'none';
     document.getElementById("overlay").style.display = "none";
-    if (id1Value == 'Dis_all') {
-        document.getElementById(id1Value).checked = true;
-        document.getElementById('Dis_in').checked = true;
-        document.getElementById('Dis_out').checked = true;
+    if (id1Value == 'arm_all') {
+        checkboxIn.checked = false;
+        checkboxOut.checked = false;
         payload="0";
-    }
-    console.log(payload);
+     }
+     if(id1Value == 'arm_in')//in....................
+     {
+      if(!checkboxIn.checked && checkboxOut.checked )
+      {
+        document.getElementById('arm_all').checked = false;
+        arrowIn.style.borderLeftColor="#ccc";
+        l1.style.borderColor='#ccc';
+      }
+      
+     }
+
+     if(id1Value == 'arm_out')//out.....................
+     {
+      if(checkboxIn.checked && !checkboxOut.checked )
+      {
+        checkboxAll.checked = false;
+        arrowout.style.borderLeftColor="#ccc";
+        l3.style.borderColor='#ccc';
+      }
+      
+     }
+
+
+     
+     if(!checkboxOut.checked && !checkboxIn.checked){
+           checkboxAll.checked = false;
+           arrowIn.style.borderLeftColor="#ccc";
+          l1.style.borderColor='#ccc';
+          arrowout.style.borderLeftColor="#ccc";
+          l3.style.borderColor='#ccc';
+     }
+   
 });
 
 document.getElementById('noButton').addEventListener('click', function() {
-
+ 
     document.getElementById('popup').style.display = 'none';
     document.getElementById("overlay").style.display = "none";
     if (id1Value) {
-        document.getElementById(id1Value).checked = false;
+        document.getElementById(id1Value).checked = true;
         payload="1";
     }
-   
+    if (id1Value =='arm_in') {  // arm in................................
+        if (checkboxIn.checked && !checkboxOut.checked ) {
+          arrowIn.style.borderLeftColor="#018FFB";
+          l1.style.borderColor='#018FFB';
+         }
+
+
+      }
+
+
+    if (id1Value == 'arm_all') {
+       checkboxIn.checked = true;
+       checkboxOut.checked = true;
+        checkboxAll.checked = true;
+       
+    }
+    if(checkboxOut.checked && checkboxIn.checked){
+       checkboxAll.checked = true;
+   }
+  else{
+    document.getElementById('arm_all').checked = false;
+   }
     
-    console.log(payload);
+
 });
 
 
-document.getElementById('Dis_all').addEventListener('change', function() {
-    var checkbox = document.getElementById('Dis_all');
-    if (!checkbox.checked) {
-        document.getElementById('Dis_in').checked = false;
-        document.getElementById('Dis_out').checked = false;
-        document.getElementById('Dis_all').checked = false;
+document.getElementById('arm_all').addEventListener('change', function() {
+    var checkbox = document.getElementById('arm_all');
+    if (checkbox.checked) {
+        checkboxIn.checked = true;
+        checkboxOut.checked = true;
+        checkboxAll.checked = true;
+        arrowIn.style.borderLeftColor="#018FFB";
+        l1.style.borderColor='#018FFB';
+        arrowout.style.borderLeftColor="#FEB018";
+        l3.style.borderColor='#FEB018';
 
-        l1.style.display='block';
-   l2.style.display="none";
-   l3.style.display='block';
-   arrowIn.style.display='block';
-   arrowout.style.display='block';
-   arrowIn2.style.display='none';
-   arrowout2.style.display='none';
+        
     }
 });
 
-document.getElementById('Dis_out').addEventListener('change', function() {
-  var checkboxIn= document.getElementById('Dis_in');
-    var checkboxOut= document.getElementById('Dis_out');
-    if (checkboxOut.checked && !checkboxIn.checked ) {
-   l1.style.display='none';
-   l2.style.display="block";
-   l3.style.display='none';
-   arrowIn.style.display='none';
-   arrowout.style.display='none';
-   arrowIn2.style.display='block';
-   arrowout2.style.display='none';
-    }
-    else if(checkboxOut.checked && checkboxIn.checked){
+document.getElementById('arm_out').addEventListener('change', function() {
+    if (!checkboxOut.checked && checkboxIn.checked ) {
+      arrowIn.style.borderLeftColor="#018FFB";
+          l1.style.borderColor='#018FFB';
 
-  l1.style.display='block';
-  l2.style.display="none";
-   l3.style.display='block';
-   arrowIn.style.display='block';
-   arrowout.style.display='block';
-   arrowIn2.style.display='none';
-   arrowout2.style.display='none';
-   document.getElementById('Dis_all').checked = true;
     }
+
+   if(checkboxOut.checked && checkboxIn.checked){
+      checkboxAll.checked = true;
+     
+          arrowout.style.borderLeftColor="#FEB018";
+          l3.style.borderColor='#FEB018';
+    }
+    if(checkboxOut.checked && !checkboxIn.checked){
+ 
+          arrowout.style.borderLeftColor="#FEB018";
+          l3.style.borderColor='#FEB018';
+    }
+
+
+
 });
-document.getElementById('Dis_in').addEventListener('change', function() {
-    var checkboxIn= document.getElementById('Dis_in');
-    var checkboxOut= document.getElementById('Dis_out');
+document.getElementById('arm_in').addEventListener('change', function() {
+
+    if (!checkboxIn.checked && !checkboxOut.checked ) {
+          arrowIn.style.borderLeftColor="#ccc";
+          l1.style.borderColor='#ccc';
+    }
     if (checkboxIn.checked && !checkboxOut.checked ) {
-      l1.style.display='none';
-   l2.style.display="block";
-   l3.style.display='none';
-   arrowIn.style.display='none';
-   arrowout.style.display='none';
-   arrowIn2.style.display='none';
-   arrowout2.style.display='block';
+          arrowIn.style.borderLeftColor="#018FFB";
+          l1.style.borderColor='#018FFB';
     }
+    if(checkboxOut.checked && checkboxIn.checked){
+        checkboxAll.checked = true;
+           arrowIn.style.borderLeftColor="#018FFB";
+          l1.style.borderColor='#018FFB';
+     }
 
-    else if(checkboxOut.checked && checkboxIn.checked){
+     if(!checkboxOut.checked && !checkboxIn.checked){
+       checkboxAll.checked = false;
+           arrowIn.style.borderLeftColor="#ccc";
+          l1.style.borderColor='#ccc';
+          arrowout.style.borderLeftColor="#ccc";
+          l3.style.borderColor='#ccc';
+     }
 
-l1.style.display='block';
-l2.style.display="none";
- l3.style.display='block';
- arrowIn.style.display='block';
- arrowout.style.display='block';
- arrowIn2.style.display='none';
- arrowout2.style.display='none';
- document.getElementById('Dis_all').checked = true;
-  }
 });
 
 
