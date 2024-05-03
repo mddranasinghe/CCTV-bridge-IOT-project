@@ -265,6 +265,13 @@ input[type="checkbox"]:checked::after {
 
 <div id="In">
 <div  style="width: 90%; margin: 0 auto;">
+  <div class="status_box">
+    <div class="topic"><p>Arm In Feed</p></div>
+    <div class="option">  <div class="toggle">
+    <input type="checkbox" checked id="arm_in_feeds" onclick="actionClose('arm_in_feeds')" ><label for="arm_in_feeds" ></label></div> 
+ </div>
+  </div>
+  <hr>
   <div class="status_box" >
     <div class="topic"><p>Feed 01</p></div>
     <input type="checkbox" id="arm_in1"><label for="arm_in1" ></label>
@@ -313,6 +320,13 @@ input[type="checkbox"]:checked::after {
 
 <div id="Out">
   <div  style="width: 90%; margin: 0 auto;">
+    <div class="status_box">
+      <div class="topic"><p>Arm Out Feed</p></div>
+      <div class="option">  <div class="toggle">
+      <input type="checkbox" checked id="arm_out_feeds" onclick="actionClose('arm_out_feeds')" ><label for="arm_out_feeds" ></label></div> 
+   </div>
+  </div>
+<hr>
   <div class="status_box" >
     <div class="topic" ><p>Feed 01</p></div>
     <input type="checkbox" id="arm_out1"><label for="arm_out1" ></label>
@@ -356,7 +370,12 @@ input[type="checkbox"]:checked::after {
 
  var checkboxIn= document.getElementById('arm_in');
  var checkboxOut= document.getElementById('arm_out');
- var checkboxAll= document.getElementById('arm_all')
+ var checkboxAll= document.getElementById('arm_all');
+
+
+ var checkboxInFeeds= document.getElementById('arm_in_feeds');
+ var checkboxOutFeeds= document.getElementById('arm_out_feeds');
+
  function in1()
  {
    btn.style.left='0%';
@@ -422,7 +441,9 @@ document.getElementById('yesButton').addEventListener('click', function() {
     if (id1Value == 'arm_all') {
         checkboxIn.checked = false;
         checkboxOut.checked = false;
-        payload="0";
+        checkboxInFeeds.checked=false;
+        checkboxOutFeeds.checked=false;
+      
      }
      if(id1Value == 'arm_in')//in....................
      {
@@ -431,6 +452,7 @@ document.getElementById('yesButton').addEventListener('click', function() {
         document.getElementById('arm_all').checked = false;
         arrowIn.style.borderLeftColor="#ccc";
         l1.style.borderColor='#ccc';
+        checkboxInFeeds.checked=false;
       }
       
      }
@@ -442,6 +464,7 @@ document.getElementById('yesButton').addEventListener('click', function() {
         checkboxAll.checked = false;
         arrowout.style.borderLeftColor="#ccc";
         l3.style.borderColor='#ccc';
+        checkboxOutFeeds.checked=false;
       }
       
      }
@@ -494,22 +517,85 @@ document.getElementById('noButton').addEventListener('click', function() {
 
 
 document.getElementById('arm_all').addEventListener('change', function() {
-    var checkbox = document.getElementById('arm_all');
-    if (checkbox.checked) {
-        checkboxIn.checked = true;
-        checkboxOut.checked = true;
-        checkboxAll.checked = true;
-        arrowIn.style.borderLeftColor="#018FFB";
-        l1.style.borderColor='#018FFB';
-        arrowout.style.borderLeftColor="#FEB018";
-        l3.style.borderColor='#FEB018';
-
-        
-    }
+  arm_all()
 });
 
 document.getElementById('arm_out').addEventListener('change', function() {
-    if (!checkboxOut.checked && checkboxIn.checked ) {
+  arm_out();
+});
+document.getElementById('arm_in').addEventListener('change', function() {
+  arm_in();
+});
+
+document.getElementById('arm_in_feeds').addEventListener('change', function() {
+ 
+ if(!checkboxInFeeds.checked)
+ {
+  checkboxIn.checked = false;
+ arrowIn.style.borderLeftColor="#ccc";
+ l1.style.borderColor='#ccc';
+
+ }
+ if(checkboxInFeeds.checked)
+ {
+  checkboxIn.checked = true;
+  arrowIn.style.borderLeftColor="#018FFB";
+   l1.style.borderColor='#018FFB';
+
+ }
+
+  arm_in();
+});
+document.getElementById('arm_out_feeds').addEventListener('change', function() {
+  if(!checkboxOutFeeds.checked)
+ {
+  checkboxOut.checked = false;
+ arrowout.style.borderLeftColor="#ccc";
+ l3.style.borderColor='#ccc';
+
+ }
+ if(checkboxOutFeeds.checked)
+ {
+  checkboxOut.checked = true;
+  arrowout.style.borderLeftColor="#FEB018";
+          l3.style.borderColor='#FEB018';
+
+ }
+arm_out();
+});
+
+
+
+
+function arm_in(){
+
+    if (checkboxIn.checked && !checkboxOut.checked ) {
+          arrowIn.style.borderLeftColor="#018FFB";
+          l1.style.borderColor='#018FFB';
+          checkboxInFeeds.checked=true;
+  
+       
+    }
+    if(checkboxOut.checked && checkboxIn.checked){
+        checkboxAll.checked = true;
+           arrowIn.style.borderLeftColor="#018FFB";
+          l1.style.borderColor='#018FFB';
+          checkboxInFeeds.checked=true;
+     }
+
+     if(!checkboxOut.checked && !checkboxIn.checked){
+          checkboxAll.checked = false;
+           arrowIn.style.borderLeftColor="#ccc";
+          l1.style.borderColor='#ccc';
+          arrowout.style.borderLeftColor="#ccc";
+          l3.style.borderColor='#ccc';
+         
+     }
+
+}
+
+function arm_out(){
+  if (!checkboxOut.checked && checkboxIn.checked ) {
       arrowIn.style.borderLeftColor="#018FFB";
           l1.style.borderColor='#018FFB';
 
@@ -520,42 +606,31 @@ document.getElementById('arm_out').addEventListener('change', function() {
      
           arrowout.style.borderLeftColor="#FEB018";
           l3.style.borderColor='#FEB018';
+          checkboxOutFeeds.checked=true;
     }
     if(checkboxOut.checked && !checkboxIn.checked){
  
           arrowout.style.borderLeftColor="#FEB018";
           l3.style.borderColor='#FEB018';
+          checkboxOutFeeds.checked=true;
     }
 
-
-
-});
-document.getElementById('arm_in').addEventListener('change', function() {
-
-    if (!checkboxIn.checked && !checkboxOut.checked ) {
-          arrowIn.style.borderLeftColor="#ccc";
-          l1.style.borderColor='#ccc';
-    }
-    if (checkboxIn.checked && !checkboxOut.checked ) {
-          arrowIn.style.borderLeftColor="#018FFB";
-          l1.style.borderColor='#018FFB';
-    }
-    if(checkboxOut.checked && checkboxIn.checked){
+}
+function arm_all(){
+  if (checkboxAll.checked) {
+        checkboxIn.checked = true;
+        checkboxOut.checked = true;
         checkboxAll.checked = true;
-           arrowIn.style.borderLeftColor="#018FFB";
-          l1.style.borderColor='#018FFB';
-     }
+        checkboxInFeeds.checked=true;
+        checkboxOutFeeds.checked=true;
 
-     if(!checkboxOut.checked && !checkboxIn.checked){
-       checkboxAll.checked = false;
-           arrowIn.style.borderLeftColor="#ccc";
-          l1.style.borderColor='#ccc';
-          arrowout.style.borderLeftColor="#ccc";
-          l3.style.borderColor='#ccc';
-     }
-
-});
-
+        arrowIn.style.borderLeftColor="#018FFB";
+        l1.style.borderColor='#018FFB';
+        arrowout.style.borderLeftColor="#FEB018";
+        l3.style.borderColor='#FEB018';
+  
+    }
+}
 
 
 
