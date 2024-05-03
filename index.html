@@ -533,7 +533,15 @@ document.getElementById('yesButton').addEventListener('click', function() {
 
         }
       }
-      
+      if(!checkboxIn.checked && !checkboxOut.checked )
+      {
+        for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_out'+i).disabled = true;
+
+        }
+
+      }
      }
 
 
@@ -545,11 +553,6 @@ document.getElementById('yesButton').addEventListener('click', function() {
           arrowout.style.borderLeftColor="#ccc";
           l3.style.borderColor='#ccc';
           checkboxOutFeeds.checked=false;
-          for( var i=1; i<5; i++)
-        {
-          document.getElementById('arm_out'+i).disabled = true;
-
-        }
 
 
        
