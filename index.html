@@ -20,8 +20,8 @@
           table img{width: 15vw; height: 15vw;}
 
 
-      .line_out{ border: .5vw solid #FEB018; width:95%;  margin-left:auto;margin-right:auto ;}
-      .line_in{ border: .5vw solid #018FFB; width:95%;  margin-left:auto;margin-right:auto ;}
+      .line_out{ border: .5vw solid  #018FFB; width:95%;  margin-left:auto;margin-right:auto ;}
+      .line_in{ border: .5vw solid #FEB018; width:95%;  margin-left:auto;margin-right:auto ;}
 
        
        
@@ -30,7 +30,7 @@
           #arrowIn 
         {   border-top: 2vw solid transparent; 
             border-bottom:2vw solid transparent;
-            border-left: 3vw solid #018FFB;
+            border-left: 3vw solid #FEB018;
             transform: translateY(-50%) scale(-1,1); 
          
            margin-left:auto;
@@ -40,7 +40,7 @@
           }
         #arrowout{ border-top: 2vw solid transparent; 
             border-bottom:2vw solid transparent;
-            border-left: 3vw solid #FEB018;
+            border-left: 3vw solid #018FFB ;
             transform: translateY(-50%) scale(1,1); 
        margin-left: 95%;
             margin-top:-.6%;
@@ -271,7 +271,7 @@ input[type="checkbox"]:checked::after {
     <input type="checkbox" checked id="arm_in_feeds" onclick="actionClose('arm_in_feeds')" ><label for="arm_in_feeds" ></label></div> 
  </div>
   </div>
-  <hr>
+  <hr style="border-color:#ccc">
   <div class="status_box" >
     <div class="topic"><p>Feed 01</p></div>
     <input type="checkbox" id="arm_in1"><label for="arm_in1" ></label>
@@ -326,7 +326,7 @@ input[type="checkbox"]:checked::after {
       <input type="checkbox" checked id="arm_out_feeds" onclick="actionClose('arm_out_feeds')" ><label for="arm_out_feeds" ></label></div> 
    </div>
   </div>
-<hr>
+<hr style="border-color:#ccc">
   <div class="status_box" >
     <div class="topic" ><p>Feed 01</p></div>
     <input type="checkbox" id="arm_out1"><label for="arm_out1" ></label>
@@ -382,12 +382,11 @@ input[type="checkbox"]:checked::after {
    inch.style.display='block';
    inout.style.display="none";
    outch.style.display='none';
-   
-   l1.style.display='block';
-   l3.style.display='none';
-   arrowIn.style.display='block';
-   arrowout.style.display='none';
 
+   l1.style.display='none';
+   l3.style.display='block';
+   arrowIn.style.display='none';
+   arrowout.style.display='block';
 
  }
  function Inout()
@@ -402,6 +401,8 @@ input[type="checkbox"]:checked::after {
    arrowIn.style.display='block';
    arrowout.style.display='block';
 
+
+
  }
  function out()
  {
@@ -410,10 +411,13 @@ input[type="checkbox"]:checked::after {
    inout.style.display="none";
    outch.style.display='block';
 
-   l1.style.display='none';
-   l3.style.display='block';
-   arrowIn.style.display='none';
-   arrowout.style.display='block';
+ 
+
+      
+   l1.style.display='block';
+   l3.style.display='none';
+   arrowIn.style.display='block';
+   arrowout.style.display='none';
 
  }
 
