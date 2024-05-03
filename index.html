@@ -20,31 +20,34 @@
           table img{width: 15vw; height: 15vw;}
 
 
-      .line_out{ border: .5vw solid  #018FFB; width:95%;  margin-left:auto;margin-right:auto ;}
-      .line_in{ border: .5vw solid #FEB018; width:95%;  margin-left:auto;margin-right:auto ;}
+      .line_out{ border: .5vw solid  #FEB018; width:95%;  margin-left:auto;margin-right:auto ;}
+      .line_in{ border: .5vw solid #018FFB; width:95%;  margin-left:auto;margin-right:auto ;}
 
        
        
        
        
           #arrowIn 
-        {   border-top: 2vw solid transparent; 
+        {    border-top: 2vw solid transparent; 
             border-bottom:2vw solid transparent;
-            border-left: 3vw solid #FEB018;
+            border-left: 3vw solid  #018FFB;
+            transform: translateY(-50%) scale(1,1); 
+        
+            margin-left: 95%;
+            margin-top:-.6%;
+            position: relative;
+       
+          }
+        #arrowout{
+
+            border-top: 2vw solid transparent; 
+            border-bottom:2vw solid transparent;
+            border-left: 3vw solid #FEB018 ;
             transform: translateY(-50%) scale(-1,1); 
          
            margin-left:auto;
             margin-top:-.4%;
             position: absolute;
-       
-          }
-        #arrowout{ border-top: 2vw solid transparent; 
-            border-bottom:2vw solid transparent;
-            border-left: 3vw solid #018FFB ;
-            transform: translateY(-50%) scale(1,1); 
-       margin-left: 95%;
-            margin-top:-.6%;
-            position: relative;
          }
 
 
@@ -247,8 +250,9 @@ input[type="checkbox"]:checked::after {
 <tr>
     <td  style="width: 10%;"><img id="nvr"src="cam.png" ></td>
     <td style="width: 60%;">
-       <div class="line_in" id="l1"></div><div id="arrowIn"></div>
-       <div  class="line_out" id="l3" style=" margin-top:3vw"></div><div id="arrowout"></div>
+      <div  class="line_out" id="l3" ></div><div id="arrowout"></div>
+
+       <div class="line_in" id="l1" style="margin-top: 3vw;"></div><div id="arrowIn"></div>
     </td>
     <td style="width: 10%;">   
         <img id="home" src="shome.png" style="margin-bottom: 10px;" ></td>
@@ -271,10 +275,10 @@ input[type="checkbox"]:checked::after {
     <input type="checkbox" checked id="arm_in_feeds" onclick="actionClose('arm_in_feeds')" ><label for="arm_in_feeds" ></label></div> 
  </div>
   </div>
-  <hr style="border-color:#ccc">
+<hr style="border-color:#ccc">
   <div class="status_box" >
     <div class="topic"><p>Feed 01</p></div>
-    <input type="checkbox" id="arm_in1"><label for="arm_in1" ></label>
+    <input type="checkbox"  id="arm_in1"><label for="arm_in1" ></label>
 </div>
 <div class="status_box" >
   <div class="topic" ><p>Feed 02</p></div>
@@ -337,11 +341,11 @@ input[type="checkbox"]:checked::after {
 </div>
 <div class="status_box" >
   <div class="topic" ><p>Feed 03</p></div>
-  <input type="checkbox" id="arm_out2"><label for="arm_out2" ></label>
+  <input type="checkbox" id="arm_out3"><label for="arm_out3" ></label>
 </div>
 <div class="status_box" >
   <div class="topic" ><p>Feed 04</p></div>
-  <input type="checkbox" id="arm_out2"><label for="arm_out2" ></label>
+  <input type="checkbox" id="arm_out4"><label for="arm_out4" ></label>
 </div>
 </div>
 </div>
@@ -383,10 +387,12 @@ input[type="checkbox"]:checked::after {
    inout.style.display="none";
    outch.style.display='none';
 
-   l1.style.display='none';
-   l3.style.display='block';
-   arrowIn.style.display='none';
-   arrowout.style.display='block';
+   l1.style.display='block';
+   l3.style.display='none';
+   arrowIn.style.display='block';
+   arrowout.style.display='none';
+
+ 
 
  }
  function Inout()
@@ -412,13 +418,13 @@ input[type="checkbox"]:checked::after {
    outch.style.display='block';
 
  
+   l1.style.display='none';
+   l3.style.display='block';
+   arrowIn.style.display='none';
+   arrowout.style.display='block';
 
       
-   l1.style.display='block';
-   l3.style.display='none';
-   arrowIn.style.display='block';
-   arrowout.style.display='none';
-
+  
  }
 
 
@@ -447,6 +453,17 @@ document.getElementById('yesButton').addEventListener('click', function() {
         checkboxOut.checked = false;
         checkboxInFeeds.checked=false;
         checkboxOutFeeds.checked=false;
+
+        for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_in'+i).disabled = true;
+
+        }
+        for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_out'+i).disabled = true;
+
+        }
       
      }
      if(id1Value == 'arm_in')//in....................
@@ -457,9 +474,22 @@ document.getElementById('yesButton').addEventListener('click', function() {
         arrowIn.style.borderLeftColor="#ccc";
         l1.style.borderColor='#ccc';
         checkboxInFeeds.checked=false;
+
+       for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_in'+i).disabled = true;
+
+        }
       }
-      
+
+      if(!checkboxIn.checked && !checkboxOut.checked )
+      {
+        checkboxInFeeds.checked=false;
+      }
      }
+
+
+
 
      if(id1Value == 'arm_out')//out.....................
      {
@@ -469,6 +499,12 @@ document.getElementById('yesButton').addEventListener('click', function() {
         arrowout.style.borderLeftColor="#ccc";
         l3.style.borderColor='#ccc';
         checkboxOutFeeds.checked=false;
+
+        for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_Out'+i).disabled = true;
+
+        }
       }
       
      }
@@ -481,6 +517,15 @@ document.getElementById('yesButton').addEventListener('click', function() {
           l1.style.borderColor='#ccc';
           arrowout.style.borderLeftColor="#ccc";
           l3.style.borderColor='#ccc';
+          checkboxOutFeeds.checked=false;
+          for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_out'+i).disabled = true;
+
+        }
+
+
+       
      }
    
 });
@@ -545,6 +590,11 @@ document.getElementById('arm_in_feeds').addEventListener('change', function() {
   checkboxIn.checked = true;
   arrowIn.style.borderLeftColor="#018FFB";
    l1.style.borderColor='#018FFB';
+   for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_in'+i).disabled = false;
+
+        }
 
  }
 
@@ -577,6 +627,11 @@ function arm_in(){
           arrowIn.style.borderLeftColor="#018FFB";
           l1.style.borderColor='#018FFB';
           checkboxInFeeds.checked=true;
+          for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_in'+i).disabled = false;
+
+        }
   
        
     }
@@ -585,6 +640,11 @@ function arm_in(){
            arrowIn.style.borderLeftColor="#018FFB";
           l1.style.borderColor='#018FFB';
           checkboxInFeeds.checked=true;
+          for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_in'+i).disabled = false;
+
+        }
      }
 
      if(!checkboxOut.checked && !checkboxIn.checked){
@@ -611,12 +671,23 @@ function arm_out(){
           arrowout.style.borderLeftColor="#FEB018";
           l3.style.borderColor='#FEB018';
           checkboxOutFeeds.checked=true;
+          for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_out'+i).disabled = false;
+
+        }
     }
     if(checkboxOut.checked && !checkboxIn.checked){
  
           arrowout.style.borderLeftColor="#FEB018";
           l3.style.borderColor='#FEB018';
           checkboxOutFeeds.checked=true;
+
+          for( var i=1; i<5; i++)
+        {
+          document.getElementById('arm_out'+i).disabled = false;
+
+        }
     }
 
 }
